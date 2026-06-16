@@ -1,0 +1,158 @@
+version: 1
+name: ai-delivery-agent-template
+description: Multi-agent template for product delivery automation.
+
+entrypoint:
+  agent: project_manager
+  prompt: prompts/project-manager-start.md
+
+agents:
+  project_manager:
+    display_name: Project Manager Agent
+    prompt: agents/project-manager.md
+    purpose: Receive user requests, classify work, create tasks, route agents, and maintain delivery state.
+    can_read:
+      - inbox/**
+      - docs/requirements/**
+      - docs/tasks/**
+      - docs/api/**
+      - docs/testing/**
+      - docs/reports/**
+      - state/**
+      - workflows/**
+      - agents/shared-rules.md
+    can_write:
+      - state/project-board.md
+      - state/decision-log.md
+      - docs/tasks/**
+      - inbox/**
+    must_not:
+      - Implement frontend code.
+      - Implement backend code.
+      - Produce final QA conclusions.
+    routes_to:
+      - product_manager
+      - frontend_engineer
+      - backend_engineer
+      - qa_engineer
+
+  product_manager:
+    display_name: Product Manager Agent
+    prompt: agents/product-manager.md
+    purpose: Convert prototypes, descriptions, and change requests into PRDs and acceptance criteria.
+    can_read:
+      - inbox/**
+      - docs/tasks/**
+      - docs/requirements/**
+      - state/project-board.md
+      - agents/shared-rules.md
+    can_write:
+      - docs/requirements/**
+    must_not:
+      - Implement code.
+      - Run final QA.
+      - Assign engineering work directly.
+
+  frontend_engineer:
+    display_name: Frontend Engineer Agent
+    prompt: agents/frontend-engineer.md
+    purpose: Implement frontend pages, interactions, state handling, and integration against API contracts.
+    can_read:
+      - docs/requirements/**
+      - docs/tasks/**
+      - docs/api/**
+      - docs/reports/**
+      - agents/shared-rules.md
+    can_write:
+      - docs/tasks/**
+      - frontend/**
+      - src/**
+      - app/**
+      - pages/**
+      - components/**
+    must_not:
+      - Change backend logic.
+      - Change product requirements.
+      - Change API contracts without assignment.
+
+  backend_engineer:
+    display_name: Backend Engineer Agent
+    prompt: agents/backend-engineer.md
+    purpose: Implement backend APIs, data models, validation, permissions, and service logic.
+    can_read:
+      - docs/requirements/**
+      - docs/tasks/**
+      - docs/api/**
+      - docs/reports/**
+      - agents/shared-rules.md
+    can_write:
+      - docs/api/**
+      - docs/tasks/**
+      - backend/**
+      - server/**
+      - api/**
+      - services/**
+      - db/**
+    must_not:
+      - Change frontend UI.
+      - Change product requirements.
+      - Make destructive database changes without explicit task scope.
+
+  qa_engineer:
+    display_name: QA Engineer Agent
+    prompt: agents/qa-engineer.md
+    purpose: Create test plans, execute validation, report defects, and provide acceptance conclusions.
+    can_read:
+      - docs/requirements/**
+      - docs/tasks/**
+      - docs/api/**
+      - docs/reports/**
+      - agents/shared-rules.md
+    can_write:
+      - docs/testing/**
+      - docs/reports/**
+    must_not:
+      - Fix business code.
+      - Change acceptance criteria.
+      - Mark unverified defects as passed.
+
+routing_rules:
+  prototype:
+    first_agent: product_manager
+    then:
+      - backend_engineer
+      - frontend_engineer
+      - qa_engineer
+  new_feature:
+    first_agent: product_manager
+    then:
+      - backend_engineer
+      - frontend_engineer
+      - qa_engineer
+  frontend_bug:
+    first_agent: frontend_engineer
+    then:
+      - qa_engineer
+  backend_bug:
+    first_agent: backend_engineer
+    then:
+      - qa_engineer
+  unclear_change:
+    first_agent: product_manager
+    then:
+      - project_manager
+  retest:
+    first_agent: qa_engineer
+
+quality_gates:
+  - id: prd_required
+    rule: Development cannot start without a PRD for new features.
+  - id: acceptance_required
+    rule: QA cannot start without testable acceptance criteria.
+  - id: api_contract_required
+    rule: Frontend-backend integration cannot start without an API contract when APIs are involved.
+  - id: qa_required
+    rule: A requirement cannot be marked done without a QA report.
+  - id: critical_bugs_block
+    rule: A requirement with open P0 or P1 defects cannot be accepted.
+
