@@ -288,6 +288,40 @@ docs/tasks/TASK-<YYYYMMDD>-001-QA.md
 - 不确定用哪种时，先用单窗口模式。
 - 需要并行开发、减少上下文干扰时，再切换多窗口模式。
 
+## 从单窗口切换到多窗口
+
+如果项目一开始使用单窗口模式，后面项目变大，需要切换为多窗口模式，可以让当前单窗口里的项目经理 Agent 做切换准备。
+
+在当前单窗口中发送：
+
+```text
+请读取 prompts/switch-single-to-multi-window.md，并作为项目经理 Agent 准备从单窗口模式切换到多窗口模式。
+```
+
+项目经理 Agent 会：
+
+1. 汇总当前项目状态。
+2. 更新 `state/project-board.md`。
+3. 检查已有 PRD、API 契约、任务文件、测试计划和 QA 报告。
+4. 创建或修正 `docs/tasks/` 下的多窗口任务文件。
+5. 标记哪些任务已完成，哪些任务需要交给多窗口 Agent。
+6. 输出每个 Agent 窗口的启动提示语。
+
+切换后，你需要打开对应窗口：
+
+- 项目经理窗口：读取 `prompts/multi-window-project-manager.md`
+- 产品经理窗口：读取 `prompts/multi-window-product-manager.md`
+- 后端窗口：读取 `prompts/multi-window-backend.md`
+- 前端窗口：读取 `prompts/multi-window-frontend.md`
+- 测试窗口：读取 `prompts/multi-window-qa.md`
+
+切换后的规则不变：
+
+- 项目经理 Agent 是唯一调度中心。
+- 非项目经理 Agent 只执行项目经理创建的任务文件。
+- 非项目经理 Agent 完成后必须回到项目经理窗口。
+- 是否并行执行，由项目经理 Agent 决定。
+
 ## 默认技术框架
 
 - 前端：Vue，默认 Vue 3。
@@ -364,6 +398,7 @@ docs/tasks/TASK-<YYYYMMDD>-001-QA.md
 - [prompts/project-manager-start.md](prompts/project-manager-start.md)：可直接复制使用的项目经理启动提示词
 - [prompts/single-window-start.md](prompts/single-window-start.md)：单窗口模式完整启动提示语
 - [prompts/multi-window-start.md](prompts/multi-window-start.md)：多窗口模式完整启动提示语
+- [prompts/switch-single-to-multi-window.md](prompts/switch-single-to-multi-window.md)：单窗口切换到多窗口提示语
 - [workflows/00-overview.md](workflows/00-overview.md)：整体流程
 - [workflows/03-handoff-protocol.md](workflows/03-handoff-protocol.md)：交接协议
 - [workflows/04-routing-matrix.md](workflows/04-routing-matrix.md)：项目经理调度矩阵
