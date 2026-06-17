@@ -17,6 +17,7 @@
 ├── agents/                 # 各角色 Agent 的职责、输入、输出和禁止事项
 ├── docs/
 │   ├── api/                # 接口契约
+│   ├── architecture/       # 技术框架和架构约束
 │   ├── requirements/       # PRD、用户故事、验收标准
 │   ├── reports/            # 测试报告、缺陷报告、验收结论
 │   └── tasks/              # 拆分后的执行任务
@@ -32,6 +33,25 @@
 3. 把你的需求写入 [inbox/request-template.md](inbox/request-template.md)，或直接在对话中给项目经理 Agent。
 4. 项目经理 Agent 会先更新 [state/project-board.md](state/project-board.md)，再按需调度产品、前端、后端、测试 Agent。
 5. 每个 Agent 只读取自己被允许读取的输入，只输出自己职责范围内的交付物。
+
+## 默认技术框架
+
+- 前端：Vue，默认 Vue 3。
+- 后端：Spring Boot。
+- 持久层：MyBatis-Plus。
+- 数据库：MySQL。
+
+详细约束见 [docs/architecture/TECH_STACK.md](docs/architecture/TECH_STACK.md)。
+
+## 持续交付规则
+
+项目经理 Agent 的最终目标是全部页面、前端、后端、测试和验收完成。
+
+单个 Agent 的最终目标不是完成全部页面，而是完成自己职责内的交付物并写入文档，等待项目经理 Agent 下一步调度。
+
+除非出现必须用户确认的阻塞，否则不要停在计划、分析或部分完成阶段。
+
+详细规则见 [docs/process/CONTINUOUS_DELIVERY_RULES.md](docs/process/CONTINUOUS_DELIVERY_RULES.md)。
 
 ## 标准交付顺序
 
@@ -73,6 +93,8 @@
 
 - [START_HERE.md](START_HERE.md)：后续让 AI 首先读取的启动入口
 - [agent-manifest.yaml](agent-manifest.yaml)：机器可读的 Agent 配置、权限和调度规则
+- [docs/architecture/TECH_STACK.md](docs/architecture/TECH_STACK.md)：默认技术框架
+- [docs/process/CONTINUOUS_DELIVERY_RULES.md](docs/process/CONTINUOUS_DELIVERY_RULES.md)：持续交付规则
 - [agents/project-manager.md](agents/project-manager.md)：项目经理 Agent 主提示词
 - [agents/product-manager.md](agents/product-manager.md)：产品经理 Agent 主提示词
 - [agents/frontend-engineer.md](agents/frontend-engineer.md)：前端 Agent 主提示词

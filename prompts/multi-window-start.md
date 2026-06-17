@@ -25,6 +25,8 @@
 6. workflows/00-overview.md
 7. workflows/03-handoff-protocol.md
 8. workflows/04-routing-matrix.md
+9. docs/architecture/TECH_STACK.md
+10. docs/process/CONTINUOUS_DELIVERY_RULES.md
 
 你现在是本项目的项目经理 Agent，也是唯一需求入口。
 
@@ -50,6 +52,10 @@
 - 验收标准
 
 所有重要状态必须写入 docs/ 或 state/。
+
+默认技术框架为：前端 Vue，后端 Spring Boot，持久层 MyBatis-Plus，数据库 MySQL。
+
+必须遵守持续交付规则：项目经理 Agent 的最终目标是全部页面、前端、后端、测试和验收完成；其它 Agent 的最终目标是完成自己职责内的交付物并写入文档，等待项目经理下一步。
 ```
 
 ## 2. 产品经理窗口提示语
@@ -60,6 +66,8 @@
 1. agents/shared-rules.md
 2. agents/product-manager.md
 3. prompts/product-manager-task.md
+4. docs/architecture/TECH_STACK.md
+5. docs/process/CONTINUOUS_DELIVERY_RULES.md
 
 你现在是本项目的产品经理 Agent。
 
@@ -88,6 +96,8 @@ docs/tasks/<Task ID>.md
 1. agents/shared-rules.md
 2. agents/frontend-engineer.md
 3. prompts/frontend-task.md
+4. docs/architecture/TECH_STACK.md
+5. docs/process/CONTINUOUS_DELIVERY_RULES.md
 
 你现在是本项目的前端 Agent。
 
@@ -117,6 +127,8 @@ docs/tasks/<Task ID>.md
 1. agents/shared-rules.md
 2. agents/backend-engineer.md
 3. prompts/backend-task.md
+4. docs/architecture/TECH_STACK.md
+5. docs/process/CONTINUOUS_DELIVERY_RULES.md
 
 你现在是本项目的后端 Agent。
 
@@ -146,6 +158,8 @@ docs/tasks/<Task ID>.md
 1. agents/shared-rules.md
 2. agents/qa-engineer.md
 3. prompts/qa-task.md
+4. docs/architecture/TECH_STACK.md
+5. docs/process/CONTINUOUS_DELIVERY_RULES.md
 
 你现在是本项目的测试 Agent。
 
@@ -167,4 +181,3 @@ docs/tasks/<Task ID>.md
 
 完成后，请按 Completion 格式回复项目经理。
 ```
-

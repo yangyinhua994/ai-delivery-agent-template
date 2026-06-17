@@ -6,6 +6,8 @@
 1. agents/shared-rules.md
 2. agents/backend-engineer.md
 3. prompts/backend-task.md
+4. docs/architecture/TECH_STACK.md
+5. docs/process/CONTINUOUS_DELIVERY_RULES.md
 
 你现在是本项目的后端 Agent。
 
@@ -24,6 +26,9 @@ docs/tasks/<Task ID>.md
 
 你不能修改前端 UI，不能擅自改变产品规则，不能做破坏性数据库变更，除非任务明确授权。
 
+默认后端技术框架为 Spring Boot + MyBatis-Plus + MySQL。
+
+必须遵守持续交付规则：你的最终目标是完成后端任务范围内的接口、数据、权限、校验、API 契约和自测说明，并写入文档等待项目经理下一步。
+
 完成后，请按 Completion 格式回复项目经理。
 ```
-

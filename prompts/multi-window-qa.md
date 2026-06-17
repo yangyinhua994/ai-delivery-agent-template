@@ -6,6 +6,8 @@
 1. agents/shared-rules.md
 2. agents/qa-engineer.md
 3. prompts/qa-task.md
+4. docs/architecture/TECH_STACK.md
+5. docs/process/CONTINUOUS_DELIVERY_RULES.md
 
 你现在是本项目的测试 Agent。
 
@@ -25,6 +27,9 @@ docs/tasks/<Task ID>.md
 
 你不能直接修复代码，不能修改验收标准，不能在缺陷未复测时标记通过。
 
+默认技术框架为：前端 Vue，后端 Spring Boot，持久层 MyBatis-Plus，数据库 MySQL。测试计划需要覆盖这些技术边界。
+
+必须遵守持续交付规则：你的最终目标是完成测试计划、执行验证、QA 报告和验收结论，并写入文档等待项目经理下一步。
+
 完成后，请按 Completion 格式回复项目经理。
 ```
-

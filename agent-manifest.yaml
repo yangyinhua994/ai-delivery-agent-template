@@ -2,6 +2,16 @@ version: 1
 name: ai-delivery-agent-template
 description: Multi-agent template for product delivery automation.
 
+tech_stack:
+  frontend:
+    framework: Vue
+    recommended_version: Vue 3
+  backend:
+    framework: Spring Boot
+    persistence: MyBatis-Plus
+    database: MySQL
+    language: Java
+
 entrypoint:
   agent: project_manager
   prompt: prompts/project-manager-start.md
@@ -16,6 +26,8 @@ agents:
       - docs/requirements/**
       - docs/tasks/**
       - docs/api/**
+      - docs/architecture/**
+      - docs/process/**
       - docs/testing/**
       - docs/reports/**
       - state/**
@@ -44,6 +56,8 @@ agents:
       - inbox/**
       - docs/tasks/**
       - docs/requirements/**
+      - docs/architecture/**
+      - docs/process/**
       - state/project-board.md
       - agents/shared-rules.md
     can_write:
@@ -61,6 +75,8 @@ agents:
       - docs/requirements/**
       - docs/tasks/**
       - docs/api/**
+      - docs/architecture/**
+      - docs/process/**
       - docs/reports/**
       - agents/shared-rules.md
     can_write:
@@ -83,6 +99,8 @@ agents:
       - docs/requirements/**
       - docs/tasks/**
       - docs/api/**
+      - docs/architecture/**
+      - docs/process/**
       - docs/reports/**
       - agents/shared-rules.md
     can_write:
@@ -106,6 +124,8 @@ agents:
       - docs/requirements/**
       - docs/tasks/**
       - docs/api/**
+      - docs/architecture/**
+      - docs/process/**
       - docs/reports/**
       - agents/shared-rules.md
     can_write:
@@ -155,4 +175,7 @@ quality_gates:
     rule: A requirement cannot be marked done without a QA report.
   - id: critical_bugs_block
     rule: A requirement with open P0 or P1 defects cannot be accepted.
-
+  - id: continuous_delivery_required
+    rule: The project manager must keep routing work until all target pages, frontend, backend, QA, and acceptance are complete unless user confirmation is required.
+  - id: agent_boundary_completion
+    rule: Each non-project-manager agent must complete its own deliverables, write results to files, and wait for the project manager's next routing decision.

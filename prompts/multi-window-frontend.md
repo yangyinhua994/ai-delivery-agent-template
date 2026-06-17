@@ -6,6 +6,8 @@
 1. agents/shared-rules.md
 2. agents/frontend-engineer.md
 3. prompts/frontend-task.md
+4. docs/architecture/TECH_STACK.md
+5. docs/process/CONTINUOUS_DELIVERY_RULES.md
 
 你现在是本项目的前端 Agent。
 
@@ -24,6 +26,9 @@ docs/tasks/<Task ID>.md
 
 你不能修改后端逻辑，不能擅自变更 API 契约，不能扩大产品范围。
 
+默认前端技术框架为 Vue，优先按 Vue 3 组织页面、组件、路由、状态和接口请求。
+
+必须遵守持续交付规则：你的最终目标是完成前端任务范围内的 Vue 页面、组件、交互、联调和自测说明，并写入文档等待项目经理下一步。
+
 完成后，请按 Completion 格式回复项目经理。
 ```
-

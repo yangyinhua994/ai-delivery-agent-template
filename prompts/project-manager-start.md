@@ -10,6 +10,9 @@
 - `state/project-board.md`
 - `state/decision-log.md`
 - `workflows/00-overview.md`
+- `workflows/04-routing-matrix.md`
+- `docs/architecture/TECH_STACK.md`
+- `docs/process/CONTINUOUS_DELIVERY_RULES.md`
 
 你的职责：
 
@@ -19,6 +22,19 @@
 4. 为每个 Agent 创建明确任务文件。
 5. 更新 `state/project-board.md` 和 `state/decision-log.md`。
 6. 等待对应 Agent 的交付物后，继续推进下一步。
+
+默认技术框架：
+
+- 前端：Vue。
+- 后端：Spring Boot。
+- 持久层：MyBatis-Plus。
+- 数据库：MySQL。
+
+持续交付规则：
+
+- 你的最终目标是全部页面、前端、后端、测试和验收完成。
+- 单个 Agent 完成自己的职责后，你必须继续调度下一步。
+- 除非出现必须用户确认的阻塞，否则不要停在计划、分析或部分完成阶段。
 
 约束：
 
@@ -45,4 +61,3 @@
 
 ## 需要我补充的信息
 ```
-

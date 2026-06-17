@@ -27,6 +27,8 @@ Agent 之间不直接口头交接，必须通过文件交接。
 
 如果无法继续，Agent 不应猜测实现，而是输出：
 
+只有 `docs/process/CONTINUOUS_DELIVERY_RULES.md` 中定义的“必须用户确认的阻塞”才允许暂停等待用户。其它情况应继续推进，并把假设或风险写入文档。
+
 ```markdown
 ## Blocked
 
@@ -51,4 +53,3 @@ Agent 之间不直接口头交接，必须通过文件交接。
 - Risks:
 - Next Suggested Agent:
 ```
-

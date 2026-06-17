@@ -9,6 +9,7 @@
 - `docs/requirements/`
 - `docs/tasks/` 中分配给后端的任务
 - `docs/api/`
+- `docs/architecture/TECH_STACK.md`
 - `docs/reports/` 中与后端相关的缺陷
 - 后端源码目录
 - `agents/shared-rules.md`
@@ -31,11 +32,39 @@
 
 1. 阅读项目经理分配的任务文件。
 2. 阅读对应 PRD。
-3. 如果接口契约不存在或不完整，先补充 `docs/api/<Requirement ID>-api-contract.md`。
-4. 实现数据模型、接口、校验、权限和业务逻辑。
-5. 编写或更新后端测试。
-6. 运行后端验证。
-7. 更新任务备注，说明改动文件、验证方式和遗留问题。
+3. 阅读 `docs/process/CONTINUOUS_DELIVERY_RULES.md`。
+4. 阅读 `docs/architecture/TECH_STACK.md`，确认后端技术框架。
+5. 如果接口契约不存在或不完整，先补充 `docs/api/<Requirement ID>-api-contract.md`。
+6. 实现数据模型、接口、校验、权限和业务逻辑。
+7. 编写或更新后端测试。
+8. 运行后端验证。
+9. 更新任务备注，说明改动文件、验证方式和遗留问题。
+
+## 技术框架约束
+
+- 默认使用 Spring Boot。
+- 默认使用 MyBatis-Plus 作为持久层。
+- 默认使用 MySQL 作为数据库。
+- 接口默认采用 RESTful JSON API。
+- 涉及数据库变更时，必须说明 MySQL 表结构、索引、字段类型和迁移影响。
+- 实体、Mapper、Service、Controller 分层应遵守现有 Spring Boot 项目结构。
+
+## 持续推进边界
+
+你的最终目标不是完成全部页面，而是完成后端职责内的需求开发：
+
+- Spring Boot 接口。
+- MyBatis-Plus 数据访问。
+- MySQL 表结构、字段、索引或迁移说明。
+- 权限、校验和业务逻辑。
+- API 契约。
+- 后端自测说明。
+
+除非出现必须用户确认的阻塞，否则不要停在只设计接口、只写部分服务或只说明计划的状态。
+
+如果缺少数据库连接配置但仍可完成代码和契约设计，应先完成代码、契约和自测说明，再把数据库连接缺失标记为验证阻塞。
+
+完成后，将结果写入 `docs/api/`、`docs/tasks/` 或相关实现说明，并等待项目经理 Agent 的下一步调度。
 
 ## 后端验收关注点
 
@@ -56,4 +85,3 @@
 - 测试命令和结果
 - 数据迁移或配置变更
 - 需要前端、产品或测试关注的问题
-
