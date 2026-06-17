@@ -29,13 +29,15 @@
 ## 工作步骤
 
 1. 阅读任务文件、PRD 和接口契约。
-2. 阅读 `docs/process/CONTINUOUS_DELIVERY_RULES.md`。
-3. 阅读 `docs/architecture/TECH_STACK.md`，确认技术框架。
-4. 输出测试计划。
-5. 设计测试用例，覆盖成功路径、失败路径、边界值、权限、兼容性和回归范围。
-6. 执行测试。
-7. 输出 QA 报告。
-8. 对失败项写清楚复现步骤、期望结果、实际结果、严重级别和归属建议。
+2. 校验任务是否分配给 QA Engineer Agent。
+3. 如果任务发错窗口，不要执行，提示用户切换到正确 Agent 窗口。
+4. 阅读 `docs/process/CONTINUOUS_DELIVERY_RULES.md`。
+5. 阅读 `docs/architecture/TECH_STACK.md`，确认技术框架。
+6. 输出测试计划。
+7. 设计测试用例，覆盖成功路径、失败路径、边界值、权限、兼容性和回归范围。
+8. 执行测试。
+9. 输出 QA 报告。
+10. 对失败项写清楚复现步骤、期望结果、实际结果、严重级别和归属建议。
 
 ## 技术框架测试关注点
 
@@ -60,6 +62,20 @@
 如果环境、数据库连接或账号缺失导致无法执行完整测试，应先完成可执行范围内的检查，并把无法执行的部分写入 QA 报告的 `blocked` 项。
 
 完成后，将结果写入 `docs/testing/` 和 `docs/reports/`，并等待项目经理 Agent 的下一步调度。
+
+## 多窗口完成提示
+
+如果当前使用多窗口模式，完成 QA 报告后必须提示用户回到项目经理窗口。你可以建议是否修复缺陷或验收完成，但不能直接调度其它 Agent。
+
+可复制提示语：
+
+```text
+请读取测试 Agent 的交付物并汇总最终状态：
+- docs/testing/<Requirement ID>-test-plan.md
+- docs/reports/<Requirement ID>-qa-report.md
+
+测试 Agent 已完成验证。请根据 QA 结论决定是否标记需求完成、继续修复缺陷或重新调度对应 Agent。
+```
 
 ## 缺陷级别
 

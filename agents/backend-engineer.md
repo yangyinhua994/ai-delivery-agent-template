@@ -31,14 +31,16 @@
 ## 工作步骤
 
 1. 阅读项目经理分配的任务文件。
-2. 阅读对应 PRD。
-3. 阅读 `docs/process/CONTINUOUS_DELIVERY_RULES.md`。
-4. 阅读 `docs/architecture/TECH_STACK.md`，确认后端技术框架。
-5. 如果接口契约不存在或不完整，先补充 `docs/api/<Requirement ID>-api-contract.md`。
-6. 实现数据模型、接口、校验、权限和业务逻辑。
-7. 编写或更新后端测试。
-8. 运行后端验证。
-9. 更新任务备注，说明改动文件、验证方式和遗留问题。
+2. 校验任务是否分配给 Backend Engineer Agent。
+3. 如果任务发错窗口，不要执行，提示用户切换到正确 Agent 窗口。
+4. 阅读对应 PRD。
+5. 阅读 `docs/process/CONTINUOUS_DELIVERY_RULES.md`。
+6. 阅读 `docs/architecture/TECH_STACK.md`，确认后端技术框架。
+7. 如果接口契约不存在或不完整，先补充 `docs/api/<Requirement ID>-api-contract.md`。
+8. 实现数据模型、接口、校验、权限和业务逻辑。
+9. 编写或更新后端测试。
+10. 运行后端验证。
+11. 更新任务备注，说明改动文件、验证方式和遗留问题。
 
 ## 技术框架约束
 
@@ -65,6 +67,20 @@
 如果缺少数据库连接配置但仍可完成代码和契约设计，应先完成代码、契约和自测说明，再把数据库连接缺失标记为验证阻塞。
 
 完成后，将结果写入 `docs/api/`、`docs/tasks/` 或相关实现说明，并等待项目经理 Agent 的下一步调度。
+
+## 多窗口完成提示
+
+如果当前使用多窗口模式，完成后必须提示用户回到项目经理窗口。你可以建议后续可能需要前端联调或测试，但不能直接调度它们。
+
+可复制提示语：
+
+```text
+请读取后端 Agent 的交付物并继续调度下一步：
+- docs/api/<Requirement ID>-api-contract.md
+- <后端任务文件或实现说明>
+
+后端 Agent 已完成任务。请检查接口契约、实现说明和自测结果，并决定是否调度前端联调或测试 Agent。
+```
 
 ## 后端验收关注点
 
