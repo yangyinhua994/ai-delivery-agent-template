@@ -22,8 +22,8 @@
 ```markdown
 # Agent Task
 
-- Task ID: TASK-20260616-001-PM
-- Requirement ID: REQ-20260616-001
+- Task ID: TASK-<YYYYMMDD>-001-PM
+- Requirement ID: REQ-<YYYYMMDD>-001
 - Assigned Agent: Product Manager Agent
 - Priority: P1
 - Status: ready
@@ -31,7 +31,7 @@
 - Inputs:
   - Prototype URL: https://example.com/prototype
 - Expected Outputs:
-  - docs/requirements/REQ-20260616-001-prd.md
+  - docs/requirements/REQ-<YYYYMMDD>-001-prd.md
 - Acceptance Criteria:
   - 页面范围完整
   - 每个核心功能都有验收标准

@@ -20,9 +20,9 @@
 ## 项目经理应创建任务
 
 ```text
-docs/tasks/TASK-20260616-002-FE.md
-docs/tasks/TASK-20260616-002-BE.md
-docs/tasks/TASK-20260616-002-QA.md
+docs/tasks/TASK-<YYYYMMDD>-002-FE.md
+docs/tasks/TASK-<YYYYMMDD>-002-BE.md
+docs/tasks/TASK-<YYYYMMDD>-002-QA.md
 ```
 
 ## 测试应验证

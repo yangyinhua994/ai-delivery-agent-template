@@ -28,10 +28,10 @@
 
 ## 最小使用方式
 
-1. 让 AI 先读取 [START_HERE.md](START_HERE.md)。
-2. 默认使用“单窗口项目经理模式”，由项目经理 Agent 接收你的所有需求。
-3. 把你的需求写入 [inbox/request-template.md](inbox/request-template.md)，或直接在对话中给项目经理 Agent。
-4. 项目经理 Agent 会先更新 [state/project-board.md](state/project-board.md)，再按需调度产品、前端、后端、测试 Agent。
+1. 让 AI 读取 [START_PROMPT.md](START_PROMPT.md)。
+2. AI 会按提示读取 [START_PROJECT.md](START_PROJECT.md)，检查首次启动状态并加载规则，然后停在“等待用户需求”状态。
+3. 你在下一条消息中提供原型地址、需求描述、数据库连接信息、账号、接口文档或其它输入源。
+4. 项目经理 Agent 接收需求后，会更新 [state/project-board.md](state/project-board.md)，再按需调度产品、前端、后端、测试 Agent。
 5. 每个 Agent 只读取自己被允许读取的输入，只输出自己职责范围内的交付物。
 
 ## 默认技术框架
@@ -92,6 +92,9 @@
 ## 关键文件
 
 - [START_HERE.md](START_HERE.md)：后续让 AI 首先读取的启动入口
+- [START_PROMPT.md](START_PROMPT.md)：最简启动入口，懒人专用
+- [START_PROJECT.md](START_PROJECT.md)：推荐使用的单文件启动入口，首次启动后等待你继续提供需求
+- [FIRST_RUN_CHECKLIST.md](FIRST_RUN_CHECKLIST.md)：首次启动模板检查清单
 - [agent-manifest.yaml](agent-manifest.yaml)：机器可读的 Agent 配置、权限和调度规则
 - [docs/architecture/TECH_STACK.md](docs/architecture/TECH_STACK.md)：默认技术框架
 - [docs/process/CONTINUOUS_DELIVERY_RULES.md](docs/process/CONTINUOUS_DELIVERY_RULES.md)：持续交付规则

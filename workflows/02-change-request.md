@@ -25,14 +25,14 @@
 ```markdown
 # Agent Task
 
-- Task ID: TASK-20260616-002-FE
-- Requirement ID: REQ-20260616-002
+- Task ID: TASK-<YYYYMMDD>-002-FE
+- Requirement ID: REQ-<YYYYMMDD>-002
 - Assigned Agent: Frontend Engineer Agent
 - Priority: P2
 - Status: ready
 - Source: inbox/request-template.md
 - Inputs:
-  - docs/reports/REQ-20260616-002-qa-report.md
+  - docs/reports/REQ-<YYYYMMDD>-002-qa-report.md
 - Expected Outputs:
   - 前端修复
   - 自测说明

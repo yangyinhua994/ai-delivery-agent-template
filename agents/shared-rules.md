@@ -45,11 +45,11 @@
 推荐文件命名：
 
 ```text
-docs/requirements/REQ-20260616-001-prd.md
-docs/tasks/REQ-20260616-001-tasks.md
-docs/api/REQ-20260616-001-api-contract.md
-docs/testing/REQ-20260616-001-test-plan.md
-docs/reports/REQ-20260616-001-qa-report.md
+docs/requirements/REQ-<YYYYMMDD>-001-prd.md
+docs/tasks/REQ-<YYYYMMDD>-001-tasks.md
+docs/api/REQ-<YYYYMMDD>-001-api-contract.md
+docs/testing/REQ-<YYYYMMDD>-001-test-plan.md
+docs/reports/REQ-<YYYYMMDD>-001-qa-report.md
 ```
 
 ## 交付物状态
