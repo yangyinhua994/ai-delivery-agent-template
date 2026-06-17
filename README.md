@@ -322,6 +322,27 @@ docs/tasks/TASK-<YYYYMMDD>-001-QA.md
 - 非项目经理 Agent 完成后必须回到项目经理窗口。
 - 是否并行执行，由项目经理 Agent 决定。
 
+## 从多窗口切换回单窗口
+
+如果项目已经使用多窗口模式，后面想减少窗口、回到单窗口模式，可以让项目经理窗口做收拢。
+
+在项目经理窗口中发送：
+
+```text
+请读取 prompts/switch-multi-to-single-window.md，并作为项目经理 Agent 准备从多窗口模式切换回单窗口模式。
+```
+
+项目经理 Agent 会：
+
+1. 汇总各 Agent 窗口已经完成的交付物。
+2. 检查 `docs/tasks/`、`docs/requirements/`、`docs/api/`、`docs/testing/`、`docs/reports/`。
+3. 更新 `state/project-board.md`。
+4. 更新 `state/decision-log.md`，记录切换回单窗口。
+5. 标记哪些任务已完成、哪些任务未完成、哪些任务阻塞。
+6. 输出单窗口继续执行计划。
+
+切换后，你只需要继续在项目经理窗口里工作。项目经理 Agent 会在同一个窗口内按需临时切换为产品、前端、后端或测试 Agent。
+
 ## 默认技术框架
 
 - 前端：Vue，默认 Vue 3。
@@ -399,6 +420,7 @@ docs/tasks/TASK-<YYYYMMDD>-001-QA.md
 - [prompts/single-window-start.md](prompts/single-window-start.md)：单窗口模式完整启动提示语
 - [prompts/multi-window-start.md](prompts/multi-window-start.md)：多窗口模式完整启动提示语
 - [prompts/switch-single-to-multi-window.md](prompts/switch-single-to-multi-window.md)：单窗口切换到多窗口提示语
+- [prompts/switch-multi-to-single-window.md](prompts/switch-multi-to-single-window.md)：多窗口切换回单窗口提示语
 - [workflows/00-overview.md](workflows/00-overview.md)：整体流程
 - [workflows/03-handoff-protocol.md](workflows/03-handoff-protocol.md)：交接协议
 - [workflows/04-routing-matrix.md](workflows/04-routing-matrix.md)：项目经理调度矩阵
